@@ -1,7 +1,6 @@
 package com.saap.webservice.sri;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -9,12 +8,23 @@ import java.net.URLConnection;
 import javax.xml.namespace.QName;
 import javax.xml.ws.WebServiceException;
 
+
+/**
+ * The Class RecepcionComprobantesService.
+ */
 public class RecepcionComprobantesService {
 	
+	/**
+	 * Gets the web service.
+	 *
+	 * @param wsdlLocation the wsdl location
+	 * @return the web service
+	 */
 	public static Object getWebService(String wsdlLocation) {
 	    try {
 	        QName qname = new QName("http://ec.gob.sri.ws.recepcion", "RecepcionComprobantesService");
 	        URL url = new URL(wsdlLocation);
+	        System.out.println(qname.toString().concat(" ").concat(url.toString()));
 	      //  RecepcionComprobantesService service = new RecepcionComprobantesService(url, qname);
 	        return null;
 	    } catch (MalformedURLException ex) {
@@ -24,6 +34,12 @@ public class RecepcionComprobantesService {
 	    }
 	}
 	
+	/**
+	 * Existe conexion.
+	 *
+	 * @param url the url
+	 * @return true, if successful
+	 */
 	public static boolean existeConexion(String url) {
 	    int i = 0;
 	    boolean respuesta = false;
@@ -40,6 +56,13 @@ public class RecepcionComprobantesService {
 	    return respuesta;
 	}
 	
+	/**
+	 * Test connection webservice.
+	 *
+	 * @param wsURL the ws url
+	 * @return true, if successful
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public boolean testConnectionWebservice(String wsURL) throws IOException{
 		// Create SOAP Connection
 		//String wsURL = "https://celcer.sri.gob.ec/comprobantes-electronicos-ws/RecepcionComprobantes?wsdl";
@@ -48,11 +71,11 @@ public class RecepcionComprobantesService {
 			URL url = new URL(wsURL);
 			URLConnection connection = url.openConnection();
 			connection.connect();
-			HttpURLConnection httpConn = (HttpURLConnection)connection;
+			//HttpURLConnection httpConn = (HttpURLConnection)connection;
 			System.out.println(connection.toString());
 			return true;
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return false;
 		}
@@ -63,6 +86,11 @@ public class RecepcionComprobantesService {
 		
 	}
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args)
 	{
 		//System.out.println(existeConexion("https://celcer.sri.gob.ec/comprobantes-electronicos-ws/RecepcionComprobantes?wsdl"));
