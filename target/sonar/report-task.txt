@@ -1,0 +1,5 @@
+projectKey=SRIWebservice:SRIWebservice
+serverUrl=http://localhost:9090/sonar
+dashboardUrl=http://localhost:9090/sonar/dashboard/index/SRIWebservice:SRIWebservice
+ceTaskId=AVYtg32otd_2ugXGcri5
+ceTaskUrl=http://localhost:9090/sonar/api/ce/task?id=AVYtg32otd_2ugXGcri5
